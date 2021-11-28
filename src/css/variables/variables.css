@@ -1,0 +1,7 @@
+:root {
+	--gradient: linear-gradient(90deg, rgba(148, 27, 128, 1) 0%, rgba(251, 29, 55, 1) 100%);
+	--primary: #d01429;
+	--secondary: #941B80;
+	--white: #FFFFFF;
+	--background: #04001e;
+}

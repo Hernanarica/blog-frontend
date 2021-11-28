@@ -1,29 +1,32 @@
-.contNav{
-    background: #121F3D;
-    color: white;
-	-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+.contNav {
+	background: var(--gradient);
+	color: white;
 }
-.contNav header{
+
+.contNav header {
 	display: flex;
 	justify-content: space-between;
 	padding: 1em;
 }
-.contNav h1{
+
+.contNav h1 {
 	font-size: 0;
 }
-.contNav ul{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 20px;
+
+.contNav ul {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 20px;
 	height: 100%;
 }
-.contNav ul li{
-    list-style: none;
+
+.contNav ul li {
+	list-style: none;
 }
-.contNav ul li a{
+
+.contNav ul li a {
 	font-weight: 600;
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
