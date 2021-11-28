@@ -1,8 +1,9 @@
+import logotipo from '../img/logo-stacc-white.png';
 function NavBar() {
 	return (
 		 <header>
 			 <h1>
-				 <img src="" alt="En construcción"/>
+				 <img src={ logotipo } width={100} height={50} alt="logo stacc blanco"/>
 				 My Blog
 			 </h1>
 			 <nav>
