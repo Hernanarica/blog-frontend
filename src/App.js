@@ -4,7 +4,7 @@ import Login from "./components/Login.jsx"
 
 function App() {
 	return (
-		 <div className="App">
+		 <div className="contNav">
 			 <NavBar/>
 			 <div>
 				 <Login />

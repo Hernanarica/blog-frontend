@@ -1,6 +1,11 @@
+/*Reset estilos*/
+@import "variables/variables.css";
+@import "resetEstilos.css";
+
 /* Sections */
 @import "./sections/home.css";
 @import "./sections/login.css";
 @import "./sections/register.css";
+
 /* Components */
 @import "./components/navbar.css";

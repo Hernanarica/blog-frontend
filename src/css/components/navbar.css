@@ -1,0 +1,32 @@
+.contNav {
+	background: var(--gradient);
+	color: white;
+}
+
+.contNav header {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+}
+
+.contNav h1 {
+	font-size: 0;
+}
+
+.contNav ul {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 20px;
+	height: 100%;
+}
+
+.contNav ul li {
+	list-style: none;
+}
+
+.contNav ul li a {
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+}

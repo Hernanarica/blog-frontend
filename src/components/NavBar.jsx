@@ -1,8 +1,9 @@
+import logo from '../img/logo.png';
 function NavBar() {
 	return (
 		 <header>
 			 <h1>
-				 <img src="" alt="En construcción"/>
+				 <img src={ logo } width={124.5} height={47} alt="logo STACC"/>
 				 My Blog
 			 </h1>
 			 <nav>
