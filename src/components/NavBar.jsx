@@ -9,13 +9,13 @@ function NavBar() {
 			 <nav>
 				 <ul>
 					 <li>
-						 <a href="#">Home</a>
+						 <a href="/">Home</a>
 					 </li>
 					 <li>
-						 <a href="#">Login</a>
+						 <a href="/login">Login</a>
 					 </li>
 					 <li>
-						 <a href="#">Registro</a>
+						 <a href="/Register">Registro</a>
 					 </li>
 				 </ul>
 			 </nav>
