@@ -1,0 +1,39 @@
+.sectionLogin {
+ /*   background: #15b6bb;*/
+    max-width: 500px;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.sectionLogin__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 5px;
+    background: #9fcdff;
+}
+.sectionLogin__labels{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.sectionLogin__labels label {
+    margin-bottom: 1rem;
+}
+.sectionLogin__btn {
+    padding: .5rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    width: 100%;
+    background: #007bff;
+    border: 1px solid #007bff;
+}
+.sectionLogin__btn:hover {
+    color: #9fcdff;
+    background: #48a3fd;
+    border: 1px solid #007bff;
+}
