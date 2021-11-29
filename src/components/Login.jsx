@@ -10,7 +10,7 @@ function Login(props){
         e.preventDefault();
 
 
-        fetch('http://localhost:80/user/login',{
+        fetch('http://localhost:80/user/api-authUser',{
             method: "POST",
             headers:{
                 'Content-Type':'application/json',
