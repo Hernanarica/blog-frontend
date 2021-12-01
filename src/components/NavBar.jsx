@@ -1,32 +1,39 @@
 import logo from '../img/logo.png';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-
+	
 	return (
 		 <header>
-			 <h1>
-				 <img src={ logo } width={124.5} height={47} alt="logo STACC"/>
-				 My Blog
-			 </h1>
+			 <Link to="/">
+				 <h1>
+					 <img src={ logo } width={ 124 } height={ 47 } alt="logo STACC"/>
+					 My Blog
+				 </h1>
+			 </Link>
 			 <nav>
 				 <ul>
 					 <li>
 						 <Link to="/">Home</Link>
 					 </li>
 					 <li>
-						 <Link to="/Login">Login</Link>
+						 <Link to="/login">Login</Link>
 					 </li>
 					 <li>
-						 <Link to="/Register">Registro</Link>
+						 <Link to="/registrar">Registro</Link>
 					 </li>
 					 <li>
-						 <Link to="/Contactos">Contactos</Link>
+						 <Link to="/contactos">Contactos</Link>
+					 </li>
+					 <li>
+						 <Link to="/crear-post">Crear post</Link>
+					 </li>
+					 <li>
+						 <Link to="/panel">Panel de control</Link>
 					 </li>
 				 </ul>
 			 </nav>
-		 </header>
-	);
+		 </header>);
 }
 
 export default NavBar;
