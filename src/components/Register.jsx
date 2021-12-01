@@ -30,7 +30,7 @@ function Register(props) {
 	}
 	
 	return (<section className="registro">
-		<h2 className="registro__h1">
+		<h2 className="registro__h2">
 			Registro de usuarios
 		</h2>
 		<form onSubmit={ (e) => onLoginSubmit(e) } action="" className="sectionLogin__form">
