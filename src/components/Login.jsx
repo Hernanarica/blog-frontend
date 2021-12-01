@@ -1,5 +1,6 @@
 import '../css/components/login.css'
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 function Login(props){
 
@@ -24,6 +25,7 @@ function Login(props){
         })
         .then(function (data){
             console.log(data)
+            props.onLogin(data.user)
         })
         .catch(function (err){
             console.log(err)
@@ -46,6 +48,8 @@ function Login(props){
                 </div>
                 <button className="sectionLogin__btn">Ingresar</button>
             </form>
+
+            <p className="sectionLogin__p">No tienes cuenta !! Registrate <Link to="/Register">aqui</Link></p>
         </section>
     )
 }

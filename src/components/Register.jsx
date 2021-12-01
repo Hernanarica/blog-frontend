@@ -1,5 +1,6 @@
 import '../css/components/register.css';
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 function Register(props) {
 	const [ name, setName ]         = useState("");
@@ -52,6 +53,7 @@ function Register(props) {
 			</div>
 			<button className="sectionLogin__btn">Registrar</button>
 		</form>
+		<p className="sectionLogin__p">Usuarios registrados ingresar <Link to="/Login">aqui</Link></p>
 	</section>);
 }
 
