@@ -8,7 +8,7 @@ function CreatePost(props) {
 		e.preventDefault();
 		
 		
-		fetch('http://localhost/user/api-post', {
+		fetch('http://localhost:9001/user/api-post', {
 			method: "POST", headers: {
 				'Content-Type': 'application/json'
 			}, body: JSON.stringify({

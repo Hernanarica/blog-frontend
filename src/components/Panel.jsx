@@ -11,7 +11,7 @@ function Panel(props) {
 	
 	
 	function getPost() {
-		fetch('http://localhost/user/api-posts')
+		fetch('http://localhost:9001/user/api-posts')
 			 .then(function (res) {
 				 return res.json();
 			 })
