@@ -4,8 +4,6 @@ body {
 }
 /* contenedor de todo el home */
 .wrapper-home{
-	max-width: 1300px;
-	margin: 0 auto;
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
@@ -46,7 +44,10 @@ body {
 .post > p{
 	font-size: 1.1rem;
 }
-
+.post a{
+	text-decoration: none;
+	color: var(--titulo);
+}
 /* estilos aside */
 .aside-home{
 	width: 25%;

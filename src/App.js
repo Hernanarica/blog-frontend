@@ -6,6 +6,7 @@ import Home from "./components/Home.jsx";
 import Contactos from "./components/Contactos.jsx";
 import CreatePost from "./components/CrearPost";
 import Panel from "./components/Panel";
+import VerPost from "./components/VerPost";
 import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
 import {useState} from "react";
 
@@ -30,6 +31,7 @@ function App() {
 		 	{/*</AuthDiv>*/}
 			 <Routes>
 				 <Route path="/" element={<Home/>}/>
+				 <Route path="/post/:id" element={<VerPost/>}/>
 				 <Route path="/login" element={<Login onLogin={()=> {setAuth(true); navigate('/')}}/>} />
 				 <Route path="/registrar" element={<Register/>} />
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />

@@ -6,6 +6,8 @@
 @import "./sections/home.css";
 @import "./sections/login.css";
 @import "./sections/register.css";
+@import "./sections/verPost.css";
 
 /* Components */
 @import "./components/navbar.css";
+@import "./components/container.css";

@@ -27,7 +27,7 @@ function CreatePost(props) {
 	}
 	
 	return (
-		 <section className="registro">
+		 <section className="registro container">
 			 <h2 className="registro__h2">
 				 Crea un Post
 			 </h2>

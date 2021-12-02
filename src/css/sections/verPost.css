@@ -1,0 +1,27 @@
+.ver-post__h1{
+	font-size: 2rem;
+	font-weight: bold;
+	color: #EF0070;
+	padding-bottom: .5em;
+}
+.ver-post >p{
+	font-size: 1.5rem;
+	padding-bottom: .5em;
+}
+.ver-post p:last-child{
+	color: var(--date);
+}
+.main-ver-post{
+	width: 70%;
+}
+.aside-ver-post{
+	width: 25%;
+}
+@media (max-width: 768px){
+	.main-ver-post{
+		width: 100%;
+	}
+	.aside-ver-post{
+		display: none;
+	}
+}

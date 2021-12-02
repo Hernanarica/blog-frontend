@@ -31,7 +31,7 @@ function Register(props) {
 	}
 	
 	return (
-		 <section className="registro">
+		 <section className="registro container">
 			 <h2 className="registro__h2">
 				 Registro de usuarios
 			 </h2>
