@@ -1,5 +1,5 @@
 export default {
    api : {
-      url : process.env.API_URL || 'http://localhost:80/user'
+      url : process.env.API_URL || 'http://localhost:9001/user'
    }
 }
