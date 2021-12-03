@@ -2,6 +2,7 @@ import '../css/components/register.css';
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {getAllPosts, getPublished,} from "../api/Post.api";
+import Register from "./Register";
 
 function Panel(props) {
    const [posts, setPosts] = useState([]);
@@ -43,3 +44,5 @@ function Panel(props) {
           </table>
        </section>);
 }
+
+export default Panel;
