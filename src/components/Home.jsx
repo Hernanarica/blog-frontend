@@ -1,7 +1,7 @@
 import '../css/sections/home.css';
 import {Link} from "react-router-dom";
 import React from 'react';
-import {getAllPosts} from '../api/Post.api';
+import {getPublished} from '../api/Post.api';
 
 import {useEffect, useState, createContext, useContext} from "react";
 
@@ -11,7 +11,7 @@ function Home() {
    const [posts, setPosts] = useState([]);
    
    useEffect(() => {
-      getAllPosts().then(posts => {
+      getPublished().then(posts => {
          setPosts(posts);
       });
    }, []);
@@ -21,7 +21,7 @@ function Home() {
        <div className="container wrapper-home">
           <main className="main-home">
              <section className="home">
-                <h1>Todos los posts</h1>
+                <h2>Todos los posts</h2>
                 <div className="posts">
                    {posts.map(post => (
                        <article key={post._id} className="post">

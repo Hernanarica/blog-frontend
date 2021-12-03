@@ -21,7 +21,7 @@ function VerPost() {
    <div className="container wrapper-home">
       <main className="main-ver-post">
          <section className="ver-post">
-            <h1 className="ver-post__h1">{post.title}</h1>
+            <h2 className="ver-post__h2">{post.title}</h2>
             <p>{post.text}</p>
             <p>{post.created}</p>
          </section>

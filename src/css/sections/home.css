@@ -23,7 +23,7 @@ body {
 	letter-spacing: 1px;
 }
 
-.home h1{
+.home > h2 {
 	font-size: 2rem;
 	font-weight: bold;
 	color: #EF0070;
