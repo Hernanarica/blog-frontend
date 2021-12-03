@@ -25,6 +25,10 @@
 	background: #f91d38;
 	color: white;
 }
+.btn-ok{
+	background: #f9801d;
+	color: white;
+}
 .btn-notification {
 	position: absolute;
 	top: 0.1875rem;

@@ -12,6 +12,7 @@ import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useAuths} from "./context/AuthContextLogin.jsx";
 import {UserProvider} from "./context/UsersContextList.jsx";
+import EditPost from "./components/EditPost.jsx";
 
 function Auth(props){
 	const {state} = useAuths();
@@ -52,6 +53,7 @@ function App() {
 			 <Routes>
 				 <Route path="/" element={<Auth isAuth={isAuth}><Home/></Auth>}/>
 				 <Route path="/post/:id" element={<VerPost/>}/>
+             <Route path="/post/edit/:id" element={<Auth isAuth={isAuth}><EditPost/></Auth>} />
 				 <Route path="/login" element={<Login onLogin={()=> {setAuth(true); navigate('/')}}/>} />
 				 <Route path="/registrar" element={<Register/>} />
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />
