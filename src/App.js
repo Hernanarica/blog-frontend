@@ -4,12 +4,14 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Home from "./components/Home.jsx";
 import Contactos from "./components/Contactos.jsx";
-import CreatePost from "./components/CrearPost";
-import Panel from "./components/Panel";
-import VerPost from "./components/VerPost";
+import CreatePost from "./components/CrearPost.jsx";
+import Panel from "./components/Panel.jsx";
+import Users from "./components/Users.jsx";
+import VerPost from "./components/VerPost.jsx";
 import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useAuths} from "./context/AuthContextLogin.jsx";
+import {UserProvider} from "./context/UsersContextList.jsx";
 
 function Auth(props){
 	const {state} = useAuths();
@@ -55,6 +57,7 @@ function App() {
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />
 				 <Route path="/crear-post" element={<Auth isAuth={isAuth}><CreatePost/></Auth>} />
 				 <Route path="/panel" element={<Auth isAuth={isAuth}><Panel/></Auth>} />
+				 <Route path="/users" element={<Auth isAuth={isAuth}><UserProvider><Users/></UserProvider></Auth>} />
 				 <Route path="/notfound" element={<h2>Error 404</h2>} />
 				 <Route path="*" element={<Navigate to="/notfound"/>} />
 			 </Routes>

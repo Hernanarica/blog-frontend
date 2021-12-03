@@ -2,6 +2,8 @@ import '../css/components/login.css'
 import {useState} from "react";
 import { Link } from "react-router-dom";
 import {useAuths} from "../context/AuthContextLogin.jsx";
+import * as API from '../api/Auth.api.jsx';
+
 
 function Login(props){
 
@@ -12,31 +14,23 @@ function Login(props){
         e.preventDefault();
 
 
-        fetch('http://localhost:9001/user/api-authUser',{
-            method: "POST",
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-                email, password
+        API.login(email, password)
+            .then(function (res){
+                return res.json()
             })
-        })
-        .then(function (res){
-            return res.json()
-        })
-        .then(function (data){
+            .then(function (data){
 
-            localStorage.setItem('token', data.token );
-            localStorage.setItem('user', JSON.stringify(data.r));
-            props.onLogin(data.user)
-            dispatch({type: 'LOGIN', payload: data.user})
+                localStorage.setItem('token', data.token );
+                localStorage.setItem('user', JSON.stringify(data.r));
+                props.onLogin(data.user)
+                dispatch({type: 'LOGIN', payload: data.user})
 
-            console.log(data)
+                console.log(data)
 
-        })
-        .catch(function (err){
-            console.log(err)
-        })
+            })
+            .catch(function (err){
+                console.log(err)
+            })
     }
 
     return (

@@ -3,12 +3,14 @@
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 1rem;
     border-radius: 10px;
 }
 .sectionLogin h2{
-	color: var(--titulo);
+	color: #FFFFFF;
+    margin: auto;
+    padding-bottom: 2rem;
+    font-size: 2.5rem;
 }
 .sectionLogin__form {
     display: flex;
@@ -16,7 +18,7 @@
     justify-content: center;
     padding: 1.5rem;
     border-radius: 5px;
-    background: #9fcdff;
+    background: #998baa;
 }
 .sectionLogin__labels{
     display: flex;
@@ -27,12 +29,13 @@
     margin-bottom: 1rem;
 }
 .sectionLogin__btn {
-    padding: .5rem;
+    padding: 0.5rem;
     margin: 1rem auto;
     border-radius: 5px;
     width: 100%;
-    background: #007bff;
+    background: var(--gradient);
     border: 1px solid #007bff;
+    color: white;
 }
 .sectionLogin__btn:hover {
     color: #9fcdff;
@@ -40,5 +43,11 @@
     border: 1px solid #007bff;
 }
 .sectionLogin__p {
-    color: #9fcdff;
+    color: #ffffff;
+    margin: auto;
+    padding-top: 2rem;
+}
+.sectionLogin__p a {
+    text-decoration: none;
+    color: #e11d49;;
 }
