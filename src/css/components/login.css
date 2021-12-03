@@ -51,3 +51,8 @@
     text-decoration: none;
     color: #e11d49;;
 }
+input {
+    height: 1.5rem;
+    border-radius: 5px;
+    border: none;
+}
