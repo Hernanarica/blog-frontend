@@ -27,7 +27,7 @@ function Login(props){
         .then(function (data){
 
             localStorage.setItem('token', data.token );
-            localStorage.setItem('user', JSON.stringify(data.user));
+            localStorage.setItem('user', JSON.stringify(data.r));
             props.onLogin(data.user)
             dispatch({type: 'LOGIN', payload: data.user})
 

@@ -7,16 +7,16 @@ function Register(props) {
 	const [ lastname, setLastname ] = useState("");
 	const [ email, setEmail ]       = useState("");
 	const [ password, setPassword ] = useState("");
-	
+
 	function onRegisterSubmit(e) {
 		e.preventDefault();
-		
-		
-		fetch('http://localhost:9001/user/api-userCreate', {
+
+
+		fetch('http://localhost:9001/user/api-user', {
 			method: "POST", headers: {
 				'Content-Type': 'application/json'
 			}, body: JSON.stringify({
-				name, lastname, email, password
+				name, lastname, email, password, role: 'user'
 			})
 		})
 			 .then(function (res) {
@@ -29,7 +29,7 @@ function Register(props) {
 				 console.log(err);
 			 });
 	}
-	
+
 	return (
 		 <section className="registro container">
 			 <h2 className="registro__h2">
@@ -44,7 +44,7 @@ function Register(props) {
 					 <label htmlFor="">Apellido</label>
 					 <input type="text" value={ lastname } onChange={ (e) => setLastname(e.target.value) }/>
 				 </div>
-				 <div className="sectionLogin__labels">i
+				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Email</label>
 					 <input type="email" value={ email } onChange={ (e) => setEmail(e.target.value) }/>
 				 </div>
