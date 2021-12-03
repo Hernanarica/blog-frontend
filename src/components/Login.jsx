@@ -35,6 +35,7 @@ function Login(props){
     return (
         <section className="sectionLogin">
             <h2>Bienvenidos</h2>
+            <p>Completá los campos para iniciar sesión</p>
             <form onSubmit={(e)=>onLoginSubmit(e)} action="" className="sectionLogin__form">
                 <div className="sectionLogin__labels">
                     <label htmlFor="">Email</label>
@@ -49,7 +50,7 @@ function Login(props){
                 <button className="sectionLogin__btn">Ingresar</button>
             </form>
 
-            <p className="sectionLogin__p">No tienes cuenta !! Registrate <Link to="/Register">aqui</Link></p>
+            <p className="sectionLogin__p">¿No estás registrado? Registrate <Link to="/Register">aquí</Link></p>
         </section>
     )
 }

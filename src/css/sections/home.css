@@ -15,7 +15,29 @@ body {
 }
 
 .main-home{
-	width: 70%;
+	width: 100%;
+}
+
+.div-home {
+	text-align: center;
+}
+
+.div-home img {
+	margin-top: 20px;
+	width: 40%;
+	margin-left: 3%;
+	margin-right: 5%;
+	float: left;
+	margin-bottom: 100px;
+}
+
+.div-home h1 {
+	font-size: 3em;
+	text-align: left;
+	margin-top: 150px;
+	margin-left: 50px;
+	width: 42%;
+	float: left;
 }
 
 .post > h2, .publicidad h2{
@@ -23,23 +45,45 @@ body {
 	letter-spacing: 1px;
 }
 
-.home h1{
-	font-size: 2rem;
+.home {
+	clear: left;
+}
+
+.home h2{
+	font-size: 3rem;
+	padding-top: 1em;
+	border-top:  solid springgreen;
 	font-weight: bold;
 	color: #EF0070;
-	padding-bottom: .5em;
+	padding-bottom: 1em;
+	text-align: center;
+}
+
+.posts {
+	text-align: center;
 }
 .post{
-	margin-bottom: 1em;
-	background: #07012b;
-	padding: .5em 1em;
+	width:350px;
+	border: 2px solid rgb(186, 186, 186);
+	background: #090049;
+	padding: 20px;
 	border-radius: 8px;
+	display: inline-block;
+	margin: 10px;
+
+	text-align: left;
 }
-.post > h2, .post > p{
-	padding-bottom: 0.3em;
+
+.post h3 {
+	font-size: 2.5em;
+}
+.post > h3, .post > p{
+	padding-bottom: 0.5em;
 }
 .post p:last-child{
-	color: var(--date);
+	color: white;
+	font-size: 0.8em;
+	margin-top: 15px;
 }
 .post > p{
 	font-size: 1.1rem;
@@ -47,6 +91,10 @@ body {
 .post a{
 	text-decoration: none;
 	color: var(--titulo);
+}
+
+.post-texto {
+	display: none;
 }
 /* estilos aside */
 .aside-home{

@@ -17,16 +17,28 @@ function NavBar() {
 						 <Link to="/">Home</Link>
 					 </li>
 					 <li>
+						 <Link to="/opiniones">Opiniones</Link>
+					 </li>
+					 <li>
+						 <Link to="/crear-opinion">Crear opinion</Link>
+					 </li>
+					 <li>
+						 <Link to="/editar-opinion">Editar opinion</Link>
+					 </li>
+					 <li>
 						 <Link to="/login">Login</Link>
 					 </li>
 					 <li>
 						 <Link to="/registrar">Registro</Link>
 					 </li>
 					 <li>
-						 <Link to="/contactos">Contactos</Link>
+						 <Link to="/contacto">Contacto</Link>
 					 </li>
 					 <li>
 						 <Link to="/crear-post">Crear post</Link>
+					 </li>
+					 <li>
+						 <Link to="/editar-post">Editar post</Link>
 					 </li>
 					 <li>
 						 <Link to="/panel">Panel de control</Link>

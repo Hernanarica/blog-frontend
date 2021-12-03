@@ -35,6 +35,7 @@ function Register(props) {
 			 <h2 className="registro__h2">
 				 Registro de usuarios
 			 </h2>
+			 <p>Completá los datos para poder registrarte en nuestra página</p>
 			 <form onSubmit={ (e) => onRegisterSubmit(e) } action="" className="sectionLogin__form">
 				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Nombre</label>
@@ -44,7 +45,7 @@ function Register(props) {
 					 <label htmlFor="">Apellido</label>
 					 <input type="text" value={ lastname } onChange={ (e) => setLastname(e.target.value) }/>
 				 </div>
-				 <div className="sectionLogin__labels">i
+				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Email</label>
 					 <input type="email" value={ email } onChange={ (e) => setEmail(e.target.value) }/>
 				 </div>
@@ -54,7 +55,7 @@ function Register(props) {
 				 </div>
 				 <button className="sectionLogin__btn">Registrar</button>
 			 </form>
-			 <p className="sectionLogin__p">Usuarios registrados ingresar <Link to="/login">aqui</Link></p>
+			 <p className="sectionLogin__p">¿Ya estás registrado? Entonces hacé click <Link to="/login">aquí</Link></p>
 		 </section>);
 }
 

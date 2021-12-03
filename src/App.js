@@ -3,8 +3,12 @@ import NavBar from "./components/NavBar.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Home from "./components/Home.jsx";
+import Opiniones from "./components/Opiniones.jsx";
+import CreateOpinion from "./components/CrearPost";
+import EditarOpinion from "./components/EditarPost"
 import Contactos from "./components/Contactos.jsx";
 import CreatePost from "./components/CrearPost";
+import EditarPost from "./components/EditarPost"
 import Panel from "./components/Panel";
 import VerPost from "./components/VerPost";
 import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
@@ -34,8 +38,12 @@ function App() {
 				 <Route path="/post/:id" element={<VerPost/>}/>
 				 <Route path="/login" element={<Login onLogin={()=> {setAuth(true); navigate('/')}}/>} />
 				 <Route path="/registrar" element={<Register/>} />
+				 <Route path="/opiniones" element={<Opiniones/>} />
+				 <Route path="/crear-opinion" element={<CreateOpinion/>} />
+				 <Route path="/editar-opinion" element={<EditarOpinion/>} />
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />
 				 <Route path="/crear-post" element={<CreatePost/>} />
+				 <Route path="/editar-post" element={<EditarPost/>} />
 				 <Route path="/panel" element={<Panel/>} />
 				 <Route path="/notfound" element={<h2>Error 404</h2>} />
 				 <Route path="*" element={<Navigate to="/notfound"/>} />
