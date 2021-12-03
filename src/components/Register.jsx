@@ -1,8 +1,10 @@
 import '../css/components/register.css';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Register(props) {
+   const navigate = useNavigate();
 	const [ name, setName ]         = useState("");
 	const [ lastname, setLastname ] = useState("");
 	const [ email, setEmail ]       = useState("");
@@ -28,6 +30,7 @@ function Register(props) {
 			 .catch(function (err) {
 				 console.log(err);
 			 });
+      navigate('/login');
 	}
 
 	return (
@@ -37,20 +40,20 @@ function Register(props) {
 			 </h2>
 			 <form onSubmit={ (e) => onRegisterSubmit(e) } action="" className="sectionLogin__form">
 				 <div className="sectionLogin__labels">
-					 <label htmlFor="">Nombre</label>
-					 <input type="text" value={ name } onChange={ (e) => setName(e.target.value) }/>
+					 <label htmlFor="name">Nombre</label>
+					 <input type="text" id="name" value={ name } onChange={ (e) => setName(e.target.value) }/>
 				 </div>
 				 <div className="sectionLogin__labels">
-					 <label htmlFor="">Apellido</label>
-					 <input type="text" value={ lastname } onChange={ (e) => setLastname(e.target.value) }/>
+					 <label htmlFor="lastname">Apellido</label>
+					 <input type="text" id="lastname" value={ lastname } onChange={ (e) => setLastname(e.target.value) }/>
 				 </div>
 				 <div className="sectionLogin__labels">
-					 <label htmlFor="">Email</label>
-					 <input type="email" value={ email } onChange={ (e) => setEmail(e.target.value) }/>
+					 <label htmlFor="email">Email</label>
+					 <input type="email" id="email" value={ email } onChange={ (e) => setEmail(e.target.value) }/>
 				 </div>
 				 <div className="sectionLogin__labels">
-					 <label htmlFor="">Password</label>
-					 <input type="password" value={ password } onChange={ (e) => setPassword(e.target.value) }/>
+					 <label htmlFor="password">Password</label>
+					 <input type="password" id="password" value={ password } onChange={ (e) => setPassword(e.target.value) }/>
 				 </div>
 				 <button className="sectionLogin__btn">Registrar</button>
 			 </form>

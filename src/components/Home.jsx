@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import React from 'react';
 import {getPublished} from '../api/Post.api';
 
-import {useEffect, useState, createContext, useContext} from "react";
+import {useEffect, useState} from "react";
 
 
 function Home() {
