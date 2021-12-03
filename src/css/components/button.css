@@ -1,0 +1,43 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	max-block-size: 3rem;
+	block-size: 100%;
+	inline-size: 100%;
+	padding-inline: 1.5rem;
+	padding-block: 0.625rem;
+	border: 0.0625rem solid transparent;
+	border-radius: 0.25rem;
+	text-decoration: none;
+	cursor: pointer;
+
+}
+.btn-habilitar{
+	background: #00EFAC;
+}
+.btn-editar{
+	background: #5f11bb;
+	color: white;
+}
+.btn-eliminar{
+	background: #f91d38;
+	color: white;
+}
+.btn-notification {
+	position: absolute;
+	top: 0.1875rem;
+	right: 0.1875rem;
+	border: none;
+	background-color: transparent;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.btn-notification > i {
+	vertical-align: middle;
+}
+.mb-3{
+	margin-bottom: 1rem;
+}

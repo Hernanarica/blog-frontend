@@ -1,59 +1,45 @@
 import '../css/components/register.css';
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import {getAllPosts, getPublished,} from "../api/Post.api";
 
 function Panel(props) {
-	const [ posts, setPosts ] = useState([]);
-	
-	useEffect(() => {
-		getPost();
-	}, []);
-	
-	
-	function getPost() {
-		fetch('http://localhost:9001/user/api-posts')
-			 .then(function (res) {
-				 return res.json();
-			 })
-			 .then(function (data) {
-				 console.log(data.msg);
-				 setPosts(data.msg);
-			 })
-			 .catch(function (err) {
-				 console.log(err);
-			 });
-	}
-	
-	return (
-		 <section className="registro container">
-			 <h2 className="registro__h2">
-				 Panel de control
-			 </h2>
-			 <table>
-				 <thead>
-					 <tr>
-						 <th>ID</th>
-						 <th>Título</th>
-						 <th>Texto</th>
-						 <th>Acciones</th>
-					 </tr>
-				 </thead>
-				 <tbody>
-					 { posts.map(post => (
-						  <tr key={ post._id }>
-							  <td>{ post._id }</td>
-							  <td>{ post.title }</td>
-							  <td>{ post.text }</td>
-							  <td>
-								  <a href="#">Habilitar</a>
-								  <a href="#">Editar</a>
-								  <a href="#">Eliminar</a>
-							  </td>
-						  </tr>
-					 )) }
-				 </tbody>
-			 </table>
-		 </section>);
+   const [posts, setPosts] = useState([]);
+   
+   useEffect(() => {
+      getAllPosts().then(posts => {
+         setPosts(posts);
+      });
+   }, []);
+   
+   /* funcion que habilite el estado del post */
+   
+   return (
+       <section className="wrapper-panel container">
+          <h2 className="panel__h2">
+             Panel de control
+          </h2>
+          <table className="panel__table">
+             <thead>
+             <tr>
+                <th>Título</th>
+                <th>Texto</th>
+                <th>Acciones</th>
+             </tr>
+             </thead>
+             <tbody>
+             {posts.map(post => (
+                 <tr key={post._id}>
+                    <td>{post.title}</td>
+                    <td>{post.text}</td>
+                    <td>
+                       <a href="#" className="btn btn-habilitar mb-3">Habilitar</a>
+                       <a href="#" className="btn btn-editar mb-3">Editar</a>
+                       <a href="#" className="btn btn-eliminar">Eliminar</a>
+                    </td>
+                 </tr>
+             ))}
+             </tbody>
+          </table>
+       </section>);
 }
-
-export default Panel;
