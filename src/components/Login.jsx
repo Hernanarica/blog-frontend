@@ -1,12 +1,13 @@
 import '../css/components/login.css'
 import {useState} from "react";
 import { Link } from "react-router-dom";
+import {useAuths} from "../context/AuthContextLogin.jsx";
 
 function Login(props){
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const {state, dispatch} = useAuths()
     function onLoginSubmit(e){
         e.preventDefault();
 
@@ -24,8 +25,14 @@ function Login(props){
             return res.json()
         })
         .then(function (data){
-            console.log(data)
+
+            localStorage.setItem('token', data.token );
+            localStorage.setItem('user', JSON.stringify(data.user));
             props.onLogin(data.user)
+            dispatch({type: 'LOGIN', payload: data.user})
+
+            console.log(data)
+
         })
         .catch(function (err){
             console.log(err)

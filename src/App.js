@@ -8,18 +8,36 @@ import CreatePost from "./components/CrearPost";
 import Panel from "./components/Panel";
 import VerPost from "./components/VerPost";
 import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useAuths} from "./context/AuthContextLogin.jsx";
 
 function Auth(props){
-	return props.isAuth ? props.children : <Navigate to="/login" />
+	const {state} = useAuths();
+	return state.isAuthenticated ? props.children : <Navigate to="/login" />
 }
 function AuthDiv(props){
-	return props.isAuth ? props.children : null
+	const {state} = useAuths();
+	return state.isAuthenticated ? props.children : null
 }
 function App() {
-
+	const {state, dispatch} = useAuths();
 	const [isAuth, setAuth] = useState(false);
 	const navigate = useNavigate();
+
+	useEffect(()=>{
+		if (localStorage.getItem('token') && localStorage.getItem('user')){
+			const user = JSON.parse(localStorage.getItem('user'));
+			dispatch({type: 'LOGIN', payload: {user}});
+		}
+	},[]);
+
+	useEffect(() => {
+		if (state.isAuthenticated) {
+			navigate('/');
+		}else{
+			navigate('/login');
+		}
+	}, [state]);
 
 	return (
 		 <div>
@@ -30,13 +48,13 @@ function App() {
 			 </div>
 		 	{/*</AuthDiv>*/}
 			 <Routes>
-				 <Route path="/" element={<Home/>}/>
+				 <Route path="/" element={<Auth isAuth={isAuth}><Home/></Auth>}/>
 				 <Route path="/post/:id" element={<VerPost/>}/>
 				 <Route path="/login" element={<Login onLogin={()=> {setAuth(true); navigate('/')}}/>} />
 				 <Route path="/registrar" element={<Register/>} />
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />
-				 <Route path="/crear-post" element={<CreatePost/>} />
-				 <Route path="/panel" element={<Panel/>} />
+				 <Route path="/crear-post" element={<Auth isAuth={isAuth}><CreatePost/></Auth>} />
+				 <Route path="/panel" element={<Auth isAuth={isAuth}><Panel/></Auth>} />
 				 <Route path="/notfound" element={<h2>Error 404</h2>} />
 				 <Route path="*" element={<Navigate to="/notfound"/>} />
 			 </Routes>

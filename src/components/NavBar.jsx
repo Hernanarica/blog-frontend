@@ -1,8 +1,23 @@
 import logo from '../img/logo.png';
 import { Link } from "react-router-dom";
+import {useAuths} from "../context/AuthContextLogin.jsx";
+import {useState} from "react";
 
 function NavBar() {
-	
+	const {dispatch} = useAuths();
+	const [isAuth] = useState(false);
+	function AuthDiv(props){
+		const {state} = useAuths();
+		return state.isAuthenticated ? props.children : null
+	}
+
+	function handleLogout(e){
+		e.preventDefault();
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		dispatch({type: 'LOGOUT'});
+	};
+
 	return (
 		 <header>
 			 <Link to="/">
@@ -31,6 +46,14 @@ function NavBar() {
 					 <li>
 						 <Link to="/panel">Panel de control</Link>
 					 </li>
+					 <AuthDiv isAuth={isAuth}>
+					 <li>
+						 <Link onClick={(e)=>{
+							handleLogout(e)}}
+							to="#">Cerrar Sesión</Link>
+					 </li>
+					 </AuthDiv>
+
 				 </ul>
 			 </nav>
 		 </header>);
