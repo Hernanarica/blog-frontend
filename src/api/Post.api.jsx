@@ -16,9 +16,25 @@ export async function getAllPosts() {
    const posts = await response.json();
    return posts;
 }
+export async function Published(id) {
+   const response = await fetch(`${Config.api.url}/api-post/${id}`, {
+      method: 'PATCH',
+   });
+   const post = await response.json();
+   return post;
+}
+export async function borrarPost(id) {
+   const response = await fetch(`${Config.api.url}/api-post/${id}`, {
+      method: 'DELETE',
+   });
+   const post = await response.json();
+   return post;
+}
 
 export default {
    getPublished,
    getPostById,
-   getAllPosts
+   getAllPosts,
+   Published,
+   borrarPost
 };
