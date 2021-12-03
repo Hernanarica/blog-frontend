@@ -3,7 +3,7 @@ import { useState } from "react";
 function CreatePost(props) {
 	const [ title, setTitle ] = useState("");
 	const [ text, setText ]   = useState("");
-	
+
 	function onCreatePostSubmit(e) {
 		e.preventDefault();
 		
