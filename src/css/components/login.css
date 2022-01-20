@@ -1,3 +1,9 @@
+
+#msg {
+    text-align: center;
+    padding: 1rem 0;
+}
+
 .sectionLogin {
     max-width: 500px;
     margin: 5rem auto;
@@ -6,6 +12,7 @@
     padding: 1rem;
     border-radius: 10px;
 }
+
 .sectionLogin h2{
 	color: #FFFFFF;
     margin: auto;
@@ -27,6 +34,11 @@
 }
 .sectionLogin__labels label {
     margin-bottom: 1rem;
+}
+.sectionLogin__labels input {
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
 }
 .sectionLogin__btn {
     padding: 0.5rem;
@@ -51,8 +63,9 @@
     text-decoration: none;
     color: #e11d49;;
 }
+/*
 input {
     height: 1.5rem;
     border-radius: 5px;
     border: none;
-}
+}*/

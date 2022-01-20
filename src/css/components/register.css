@@ -11,3 +11,8 @@
     padding-bottom: 2rem;
     font-size: 2.5rem;
 }
+/*
+.sectionLogin__input:focus {
+    border: 1px solid red;
+}
+*/

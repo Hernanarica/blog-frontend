@@ -18,10 +18,10 @@ function Auth(props){
 	const {state} = useAuths();
 	return state.isAuthenticated ? props.children : <Navigate to="/login" />
 }
-function AuthDiv(props){
+/*function AuthDiv(props){
 	const {state} = useAuths();
 	return state.isAuthenticated ? props.children : null
-}
+}*/
 function App() {
 	const {state, dispatch} = useAuths();
 	const [isAuth, setAuth] = useState(false);

@@ -8,6 +8,9 @@ function Register(props) {
 	const [ email, setEmail ]       = useState("");
 	const [ password, setPassword ] = useState("");
 
+	const [validar, setValidar] = useState("");
+
+
 	function onRegisterSubmit(e) {
 		e.preventDefault();
 
@@ -15,7 +18,8 @@ function Register(props) {
 		fetch('http://localhost:9001/user/api-user', {
 			method: "POST", headers: {
 				'Content-Type': 'application/json'
-			}, body: JSON.stringify({
+			},
+			body: JSON.stringify({
 				name, lastname, email, password, role: 'user'
 			})
 		})
@@ -23,7 +27,28 @@ function Register(props) {
 				 return res.json();
 			 })
 			 .then(function (data) {
+				 if(!name){
+					 setValidar('El nombre es obligatorio !');
+					 return
+				 }
+
+				 if(!lastname){
+					 setValidar('El apellido es obligatorio !');
+					 return
+
+				 }
+
+				 if(!email){
+					 setValidar('El email es obligatorio !');
+					 return
+				 }
+
+				 if(!password){
+					 setValidar('El password es obligatorio !');
+					 return
+				 }
 				 console.log(data);
+
 			 })
 			 .catch(function (err) {
 				 console.log(err);
@@ -38,7 +63,7 @@ function Register(props) {
 			 <form onSubmit={ (e) => onRegisterSubmit(e) } action="" className="sectionLogin__form">
 				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Nombre</label>
-					 <input type="text" value={ name } onChange={ (e) => setName(e.target.value) }/>
+					 <input type="text" className="sectionLogin__input"  value={ name } onChange={ (e) => setName(e.target.value) }/>
 				 </div>
 				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Apellido</label>
@@ -50,10 +75,11 @@ function Register(props) {
 				 </div>
 				 <div className="sectionLogin__labels">
 					 <label htmlFor="">Password</label>
-					 <input type="password" value={ password } onChange={ (e) => setPassword(e.target.value) }/>
+					 <input type="password"  value={ password } onChange={ (e) => setPassword(e.target.value) }/>
 				 </div>
-				 <button className="sectionLogin__btn">Registrar</button>
+				 <button onClick={() => setValidar(validar)}  className="sectionLogin__btn" >Registrar</button>
 			 </form>
+			 <p id="msg">{validar}</p>
 			 <p className="sectionLogin__p">Usuarios registrados ingresar <Link to="/login">aqui</Link></p>
 		 </section>);
 }

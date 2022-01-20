@@ -28,11 +28,6 @@ function NavBar() {
 			 </Link>
 			 <nav>
 				 <ul>
-					 <AuthDiv isAuth={isAuth}>
-					 <li>
-						 <Link to="/">Home</Link>
-					 </li>
-					 </AuthDiv>
 					 <li>
 						 <Link to="/login">Login</Link>
 					 </li>
@@ -40,6 +35,9 @@ function NavBar() {
 						 <Link to="/registrar">Registro</Link>
 					 </li>
 					 <AuthDiv isAuth={isAuth}>
+					 <li>
+						 <Link to="/">Home</Link>
+					 </li>
 					 <li>
 						 <Link to="/contactos">Contactos</Link>
 					 </li>

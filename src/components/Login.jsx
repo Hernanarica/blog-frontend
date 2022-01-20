@@ -7,25 +7,38 @@ import * as API from '../api/Auth.api.jsx';
 
 function Login(props){
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const {state, dispatch} = useAuths()
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const {state, dispatch} = useAuths();
+    let [validar, setValidar] = useState("");
+
+
     function onLoginSubmit(e){
         e.preventDefault();
-
 
         API.login(email, password)
             .then(function (res){
                 return res.json()
             })
             .then(function (data){
+                if(!email){
+                    setValidar('El email es obligatorio !')
+                    return
 
-                localStorage.setItem('token', data.token );
-                localStorage.setItem('user', JSON.stringify(data.r));
-                props.onLogin(data.user)
-                dispatch({type: 'LOGIN', payload: data.user})
+                }
 
-                console.log(data)
+                if(!password){
+                    setValidar('El password es obligatorio !')
+                    return
+                }
+
+                if (email && password){
+                    localStorage.setItem('token', data.token );
+                    localStorage.setItem('user', JSON.stringify(data.r));
+                    props.onLogin(data.user)
+                    dispatch({type: 'LOGIN', payload: data.user});
+
+                }
 
             })
             .catch(function (err){
@@ -39,20 +52,21 @@ function Login(props){
             <form onSubmit={(e)=>onLoginSubmit(e)} action="" className="sectionLogin__form">
                 <div className="sectionLogin__labels">
                     <label htmlFor="">Email</label>
-                    <input type="email" value={email}
-                        onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="email" value={email} id="emails"
+                           onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
                 <div className="sectionLogin__labels">
                     <label htmlFor="">Password</label>
-                    <input type="password" value={password}
-                       onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="password" value={password} id="passwords"
+                           onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
-                <button className="sectionLogin__btn">Ingresar</button>
+                <button onClick={() => setValidar(validar)} className="sectionLogin__btn">Ingresar</button>
             </form>
-
-            <p className="sectionLogin__p">No tienes cuenta !! Registrate <Link to="/Register">aqui</Link></p>
+            <p id="msg">{validar}</p>
+            <p className="sectionLogin__p">No tienes cuenta !! Registrate <Link to="/registrar">aqui</Link></p>
         </section>
     )
 }
 
 export default Login
+
