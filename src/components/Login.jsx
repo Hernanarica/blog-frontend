@@ -10,9 +10,16 @@ function Login(props){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {state, dispatch} = useAuths();
-    let [validar, setValidar] = useState("");
+    const [validar, setValidar] = useState("");
 
+    const styles = () => {
 
+        let inputEmail = document.getElementById('emails');
+        let inputPassword = document.getElementById('passwords');
+
+        (!email) ? inputEmail.style.border = "2px solid red" : inputEmail.style.border = "2px solid green";
+        (!password) ? inputPassword.style.border = "2px solid red" : inputPassword.style.border = "2px solid green";
+    }
     function onLoginSubmit(e){
         e.preventDefault();
 
@@ -57,10 +64,11 @@ function Login(props){
                 </div>
                 <div className="sectionLogin__labels">
                     <label htmlFor="">Password</label>
+
                     <input type="password" value={password} id="passwords"
                            onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
-                <button onClick={() => setValidar(validar)} className="sectionLogin__btn">Ingresar</button>
+                <button onClick={styles} className="sectionLogin__btn">Ingresar</button>
             </form>
             <p id="msg">{validar}</p>
             <p className="sectionLogin__p">No tienes cuenta !! Registrate <Link to="/registrar">aqui</Link></p>
