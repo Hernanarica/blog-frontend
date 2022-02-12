@@ -5,7 +5,7 @@ body {
 /* contenedor de todo el home */
 .wrapper-home{
 	display: flex;
-	align-items: start;
+	align-items: flex-start;
 	justify-content: space-between;
 	height: 100vh;
 	gap: 20px;

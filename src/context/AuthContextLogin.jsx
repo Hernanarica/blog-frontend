@@ -19,6 +19,7 @@ function AuthReducer(state, action){
         default: return state;
     }
 }
+
 // manejamos el estado y el contexto con context
 export function AuthProvider({children}){
     const [state, dispatch] = useReducer(AuthReducer, {
