@@ -4,7 +4,7 @@ import { getAllPosts, Published, borrarPost } from "../api/Post.api";
 import { Link } from "react-router-dom";
 
 
-function Panel(props) {
+function Panel() {
 	const [ posts, setPosts ] = useState([]);
 	
 	useEffect(() => {
@@ -19,7 +19,6 @@ function Panel(props) {
 				setPosts(posts);
 			});
 		});
-		//redireccionar al panel
 	}
 	
 	function deletePost(id) {
@@ -28,7 +27,6 @@ function Panel(props) {
 				setPosts(posts);
 			});
 		});
-		//redireccionar al panel
 	}
 	
 	return (
@@ -50,12 +48,11 @@ function Panel(props) {
 							<td>{ post.title }</td>
 							<td>{ post.text }</td>
 							<td>
-								<a href="/" className={ post.public ? 'btn btn-ok mb-3' : 'btn btn-habilitar mb-3' }
-								   onClick={ () => update(post._id) }>{ post.public ? 'Listo' : 'Habilitar' }</a>
+								<a href="/" className={ post.public ? 'btn btn-ok mb-3' : 'btn btn-habilitar mb-3' } onClick={ () => update(post._id) }>{ post.public ? 'Listo' : 'Habilitar' }</a>
 								<Link to={ `/post/edit/${ post._id }` }>
 									<button className="btn btn-editar mb-3">Editar</button>
 								</Link>
-								<a href="/" className="btn btn-eliminar" onClick={ () => deletePost(post._id) }>Borrar</a>
+								<button className="btn btn-eliminar" onClick={ () => deletePost(post._id) }>Borrar</button>
 							</td>
 						</tr>
 					)) }
