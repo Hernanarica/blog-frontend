@@ -54,7 +54,7 @@ function Register(props) {
 				 </div>
 				 <button className="sectionLogin__btn">Registrar</button>
 			 </form>
-			 <p className="sectionLogin__p">Usuarios registrados ingresar <Link to="/login">aqui</Link></p>
+			 <p className="sectionLogin__p">Usuarios registrados ingresar <Link to="/">aqui</Link></p>
 		 </section>);
 }
 

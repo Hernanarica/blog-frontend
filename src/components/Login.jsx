@@ -1,32 +1,34 @@
 import '../css/components/login.css';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuths } from "../context/AuthContextLogin.jsx";
-import * as API from '../api/Auth.api.jsx';
+import { login } from "../api/Auth.api";
+import AuthContext from "../context/authContext";
 
 
-function Login({ setAuth, setAdmin }) {
+function Login() {
+	const { dispatch } = useContext(AuthContext);
 	
 	const [ email, setEmail ]       = useState("");
 	const [ password, setPassword ] = useState("");
-	const { dispatch }              = useAuths();
 	
 	function onLoginSubmit(e) {
 		e.preventDefault();
 		
-		API.login(email, password)
+		login(email, password)
 			.then(function (res) {
 				return res.json();
 			})
 			.then(function (data) {
 				const { token } = data;
 				const user      = { ...data.user, token };
+				console.log(user);
 				
 				localStorage.setItem('user', JSON.stringify(user));
 				
-				(user.role === 'user') ? setAuth(true) : setAdmin(true);
-				
-				dispatch({ type: 'LOGIN', payload: user });
+				dispatch({
+					type: 'login',
+					payload: user
+				});
 			})
 			.catch(function (err) {
 				console.log(err);

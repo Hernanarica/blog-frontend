@@ -17,6 +17,5 @@ export async function getUsers() {
 			'Content-Type': 'application/json',
 			'auth-token': localStorage.getItem('token')
 		}
-	})
-		.then(res => res.json());
+	}).then(res => res.json());
 }

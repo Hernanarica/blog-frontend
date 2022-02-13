@@ -1,35 +1,30 @@
-import Config from '../config/config';
+import API from "../config/config";
 
 export async function getPublished() {
-	const response = await fetch(`${ Config.api.url }/posts`);
-	const post     = await response.json();
-	return post;
+	const response = await fetch(`${ API.url }/posts`);
+	return await response.json();
 }
 
 export async function getPostById(id) {
-	const response = await fetch(`${ Config.api.url }/post/${ id }`);
-	const post     = await response.json();
-	return post;
+	const response = await fetch(`${ API.url }/post/${ id }`);
+	return await response.json();
 }
 
 export async function getAllPosts() {
-	const response = await fetch(`${ Config.api.url }/posts/published`);
-	const posts    = await response.json();
-	return posts;
+	const response = await fetch(`${ API.url }/posts/published`);
+	return await response.json();
 }
 
 export async function Published(id) {
-	const response = await fetch(`${ Config.api.url }/post/${ id }`, {
+	const response = await fetch(`${ API.url }/post/${ id }`, {
 		method: 'PATCH'
 	});
-	const post     = await response.json();
-	return post;
+	return await response.json();
 }
 
 export async function borrarPost(id) {
-	const response = await fetch(`${ Config.api.url }/post/${ id }`, {
+	const response = await fetch(`${ API.url }/post/${ id }`, {
 		method: 'DELETE'
 	});
-	const post     = await response.json();
-	return post;
+	return await response.json();
 }
