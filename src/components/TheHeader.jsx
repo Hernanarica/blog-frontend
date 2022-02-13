@@ -1,7 +1,8 @@
 import logo from '../img/logo.png';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../context/authContext";
+import { LogoutIcon } from "@heroicons/react/outline";
 
 function TheHeader() {
 	const { user, dispatch } = useContext(AuthContext);
@@ -17,60 +18,79 @@ function TheHeader() {
 	};
 	
 	return (
-		<header>
-			<h1>
-				<img src={ logo } width="124" height="47" alt="logo STACC" />
-				My Blog
-			</h1>
-			<nav>
-				<ul>
-					{
-						(!user?.role) && (
-							<>
-								<li>
-									<Link to="/">Login</Link>
-								</li>
-								<li>
-									<Link to="/register">Registrar</Link>
-								</li>
-							</>
-						)
-					}
-					{
-						(user?.role === 'user' || user.role === 'admin') && (
-							<>
-								<li>
-									<Link to="/home">Home</Link>
-								</li>
-								<li>
-									<Link to="/contact">Contacto</Link>
-								</li>
-							</>
-						)
-					}
-					{
-						(user?.role === 'admin') && (
-							<>
-								<li>
-									<Link to="/panel/crear-post">Crear Post</Link>
-								</li>
-							
-								<li>
-									<Link to="/panel">Panel de control</Link>
-								</li>
-							</>
-						)
-					}
-					{
-						(user?.role === 'user' || user.role === 'admin') && (
-							<>
-								<li>
-									<button onClick={ handleLogout }>Cerra sesión</button>
-								</li>
-							</>
-						)
-					}
-				</ul>
+		<header className="shadow fixed top-0 w-full">
+			<nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+				<div className="container flex flex-wrap justify-between items-center mx-auto">
+					<Link to="/" className="flex">
+						<h1>
+							<img src={ logo } width="124" height="47" alt="logo STACC" />
+						</h1>
+					</Link>
+					<button data-collapse-toggle="mobile-menu" type="button"
+					        className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+					        aria-controls="mobile-menu-2" aria-expanded="false">
+						<span className="sr-only">Open main menu</span>
+						<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+							      clipRule="evenodd"></path>
+						</svg>
+						<svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<path fillRule="evenodd"
+							      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+							      clipRule="evenodd"></path>
+						</svg>
+					</button>
+					<div className="hidden w-full md:block md:w-auto" id="mobile-menu">
+						<ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+							{
+								(!user?.role) && (
+									<>
+										<li>
+											<NavLink to="/"
+											         className={ ({ isActive }) => isActive ? 'text-blue-700' : 'block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent text-gray-400 md:p-0' }>Login</NavLink>
+										</li>
+										<li>
+											<NavLink to="/register"
+											         className={ ({ isActive }) => isActive ? 'text-blue-700' : 'block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent text-gray-400 md:p-0' }>Registrar</NavLink>
+										</li>
+									</>
+								)
+							} {
+							(user?.role === 'user' || user.role === 'admin') && (
+								<>
+									<li>
+										<NavLink to="/home"
+										         className={ ({ isActive }) => isActive ? 'text-blue-700' : 'block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent text-gray-400 md:p-0' }>Home</NavLink>
+									</li>
+									<li>
+										<NavLink to="/contact"
+										         className={ ({ isActive }) => isActive ? 'text-blue-700' : 'block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent text-gray-400 md:p-0' }>Contacto </NavLink>
+									</li>
+								</>
+							)
+						} {
+							(user?.role === 'admin') && (
+								<>
+									<li>
+										<NavLink to="/panel" className={ ({ isActive }) => isActive ? 'text-blue-700' : 'block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent text-gray-400 md:p-0' }>Panel
+											de control </NavLink>
+									</li>
+								</>
+							)
+						} {
+							(user?.role === 'user' || user.role === 'admin') && (
+								<>
+									<li>
+										<button className="flex items-center gap-2 bg-red-600 rounded border-none px-5 py-2" onClick={ handleLogout }>
+											<LogoutIcon className="h-5" /> Salir
+										</button>
+									</li>
+								</>
+							)
+						}
+						</ul>
+					</div>
+				</div>
 			</nav>
 		</header>
 	);

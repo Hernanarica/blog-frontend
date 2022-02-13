@@ -11,6 +11,8 @@ import NotFount from "../components/NotFount";
 import PublicRoutes from "./PublicRoutes";
 import TheHeader from "../components/TheHeader";
 import CrearPost from "../components/CrearPost";
+import VerPost from "../components/VerPost";
+import TheFooter from "../components/TheFooter";
 
 function AppRouter() {
 	return (
@@ -27,15 +29,18 @@ function AppRouter() {
 					<Route element={ <AuthRoutes/>}>
 						<Route path="/home" element={ <Home /> }/>
 						<Route path="/contact" element={ <Contactos /> }/>
+						<Route path="/post/:id" element={ <VerPost /> }/>
 					</Route>
 					
 					<Route element={ <AdminRoutes/>}>
 						<Route path="/panel" element={ <Panel /> }/>
 						<Route path="/panel/crear-post" element={ <CrearPost /> }/>
+						<Route path="/post/:id" element={ <VerPost /> }/>
 					</Route>
 					
 					<Route path="*" element={ <NotFount/> }/>
 				</Routes>
+				<TheFooter />
 			</Router>
 		</>
 		// @formatter:on

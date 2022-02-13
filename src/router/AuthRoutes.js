@@ -4,7 +4,6 @@ import AuthContext from "../context/authContext";
 
 function AuthRoutes() {
 	const { user } = useContext(AuthContext);
-	console.log(user);
 	
 	return user._id ? <Outlet /> : <Navigate to="/" />;
 }

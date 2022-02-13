@@ -13,3 +13,9 @@
 @import "./components/navbar.css";
 @import "./components/container.css";
 @import "./components/button.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
