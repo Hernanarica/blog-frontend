@@ -25,16 +25,21 @@ function Auth(props) {
 // }
 
 function App() {
-	const { state, dispatch } = useAuths();
-	const [ isAuth, setAuth ] = useState(false);
-	const navigate            = useNavigate();
+	const { state, dispatch }   = useAuths();
+	const [ isAuth, setAuth ]   = useState(false);
+	const [ isAdmin, setAdmin ] = useState(false);
+	const navigate              = useNavigate();
 	
 	useEffect(() => {
 		if (localStorage.getItem('user')) {
 			const user = JSON.parse(localStorage.getItem('user'));
 			dispatch({ type: 'LOGIN', payload: { user } });
+			
+			(user.role === 'user') ? setAuth(true) : setAdmin(true);
 		}
 	}, []);
+	
+	console.log(`Es admin: ${ isAdmin }, Es user: ${ isAuth }`);
 	
 	useEffect(() => {
 		if (state.isAuthenticated) {
@@ -47,15 +52,15 @@ function App() {
 	return (
 		<div>
 			<div className="contNav">
-				<NavBar />
+				<NavBar setAuth={ setAuth } isAuth={ isAuth } isAdmin={ isAdmin } setAdmin={ setAdmin } />
 			</div>
 			{/* @formatter:off*/}
 			 <Routes>
-				 <Route path="/login" element={<Login onLogin={()=> { setAuth(true); navigate('/')} }/>} />
+				 <Route path="/login" element={ <Login setAuth={ setAuth } setAdmin={ setAdmin }/> } />
 				 <Route path="/registrar" element={<Register/>} />
 				 <Route path="/" element={<Auth isAuth={isAuth}><Home/></Auth>}/>
 				 <Route path="/post/:id" element={<VerPost/>}/>
-             <Route path="/post/edit/:id" element={<Auth isAuth={isAuth}><EditPost/></Auth>} />
+				 <Route path="/post/edit/:id" element={<Auth isAuth={isAuth}><EditPost/></Auth>} />
 				 <Route path="/contactos" element={<Auth isAuth={isAuth}><Contactos/></Auth>} />
 				 <Route path="/crear-post" element={<Auth isAuth={isAuth}><CreatePost/></Auth>} />
 				 <Route path="/panel" element={<Auth isAuth={isAuth}><Panel/></Auth>} />

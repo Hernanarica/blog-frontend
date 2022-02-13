@@ -5,7 +5,7 @@ import { useAuths } from "../context/AuthContextLogin.jsx";
 import * as API from '../api/Auth.api.jsx';
 
 
-function Login(props) {
+function Login({ setAuth, setAdmin }) {
 	
 	const [ email, setEmail ]       = useState("");
 	const [ password, setPassword ] = useState("");
@@ -13,7 +13,6 @@ function Login(props) {
 	
 	function onLoginSubmit(e) {
 		e.preventDefault();
-		
 		
 		API.login(email, password)
 			.then(function (res) {
@@ -25,7 +24,8 @@ function Login(props) {
 				
 				localStorage.setItem('user', JSON.stringify(user));
 				
-				props.onLogin(user);
+				(user.role === 'user') ? setAuth(true) : setAdmin(true);
+				
 				dispatch({ type: 'LOGIN', payload: user });
 			})
 			.catch(function (err) {
