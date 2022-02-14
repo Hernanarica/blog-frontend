@@ -40,7 +40,7 @@ function Register(props) {
 						<UserIcon className="h-5" />
 					</div>
 					<input type="text" autoComplete="off" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-					       placeholder="Ingresa tu nombre" value={ name } onChange={ (e) => setEmail(e.target.value) } />
+					       placeholder="Ingresa tu nombre" value={ name } onChange={ (e) => setName(e.target.value) } />
 				</div>
 				<label htmlFor="lastiname" className="sr-only">Your Lastname</label>
 				<div className="relative mt-1">
@@ -48,7 +48,7 @@ function Register(props) {
 						<UserIcon className="h-5" />
 					</div>
 					<input type="text" autoComplete="off" id="lastname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-					       placeholder="Ingresa tu apellido" value={ lastname } onChange={ (e) => setEmail(e.target.value) } />
+					       placeholder="Ingresa tu apellido" value={ lastname } onChange={ (e) => setLastname(e.target.value) } />
 				</div>
 				<label htmlFor="email" className="sr-only">Your Email</label>
 				<div className="relative mt-1">
