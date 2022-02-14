@@ -13,7 +13,7 @@ function Register(props) {
 		e.preventDefault();
 		
 		
-		fetch('http://localhost:9001/user/api-user', {
+		fetch('http://localhost:9001/api/user/create', {
 			method: "POST", headers: {
 				'Content-Type': 'application/json'
 			}, body: JSON.stringify({
