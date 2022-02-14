@@ -11,7 +11,8 @@ export async function getPostById(id) {
 }
 
 export async function getAllPosts() {
-	const response = await fetch(`${ API.url }/posts/published`);
+	// const response = await fetch(`${ API.url }/posts/published`);
+	const response = await fetch(`${ API.url }/posts`);
 	return await response.json();
 }
 

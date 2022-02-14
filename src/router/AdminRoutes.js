@@ -4,7 +4,6 @@ import AuthContext from "../context/authContext";
 
 function AdminRoutes() {
 	const { user } = useContext(AuthContext);
-	console.log(user.role);
 	
 	return (user.role === 'admin' && user._id) ? <Outlet /> : <Navigate to="home" />;
 }
