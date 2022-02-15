@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getAllPosts, Published, borrarPost } from "../api/Post.api";
 import { Link } from "react-router-dom";
 import { CheckIcon, PencilAltIcon, SearchIcon, TrashIcon, XIcon } from "@heroicons/react/outline";
