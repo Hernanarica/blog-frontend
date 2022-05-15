@@ -13,6 +13,8 @@ import TheHeader from "../components/TheHeader";
 import CrearPost from "../components/CrearPost";
 import VerPost from "../components/VerPost";
 import TheFooter from "../components/TheFooter";
+import CrearComentario from '../components/CrearComentario';
+import VerComentario from '../components/VerComentario';
 
 function AppRouter() {
 	return (
@@ -30,6 +32,8 @@ function AppRouter() {
 						<Route path="/home" element={ <Home /> }/>
 						<Route path="/contact" element={ <Contactos /> }/>
 						<Route path="/post/:id" element={ <VerPost /> }/>
+						<Route path="/comentario/crear-comentario" element={ <CrearComentario />}></Route>
+						<Route path="/comentario/:id" element={ <VerComentario />}></Route>
 					</Route>
 					
 					<Route element={ <AdminRoutes/>}>

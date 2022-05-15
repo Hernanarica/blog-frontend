@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getPublished } from '../api/Post.api';
 import { useEffect, useState } from "react";
 import { EyeIcon } from "@heroicons/react/outline";
+import VerPost from './VerPost';
 
 
 function Home() {
