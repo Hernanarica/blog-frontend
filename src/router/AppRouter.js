@@ -13,6 +13,7 @@ import TheHeader from "../components/TheHeader";
 import CrearPost from "../components/CrearPost";
 import VerPost from "../components/VerPost";
 import TheFooter from "../components/TheFooter";
+import EditPost from "../components/EditPost";
 
 function AppRouter() {
 	return (
@@ -36,6 +37,7 @@ function AppRouter() {
 						<Route path="/panel" element={ <Panel /> }/>
 						<Route path="/panel/crear-post" element={ <CrearPost /> }/>
 						<Route path="/post/:id" element={ <VerPost /> }/>
+						<Route path="/post/editar/:id" element={ <EditPost /> }/>
 					</Route>
 					
 					<Route path="*" element={ <NotFount/> }/>

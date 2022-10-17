@@ -1,7 +1,7 @@
 import API from "../config/config";
 
 export async function getPublished() {
-	const response = await fetch(`${ API.url }/posts`);
+	const response = await fetch(`${ API.url }/posts/published`);
 	return await response.json();
 }
 
@@ -11,7 +11,7 @@ export async function getPostById(id) {
 }
 
 export async function getAllPosts() {
-	const response = await fetch(`${ API.url }/posts/published`);
+	const response = await fetch(`${ API.url }/posts`);
 	return await response.json();
 }
 

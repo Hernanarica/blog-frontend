@@ -2,6 +2,7 @@ import '../css/sections/home.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { getPostById } from "../api/Post.api";
+import PreviousPage from "./PreviousPage";
 
 function VerPost() {
 	const { id }            = useParams();
@@ -15,7 +16,8 @@ function VerPost() {
 	}, []);
 	
 	return (
-		<div className="container wrapper-home">
+		<div className="min-h-screen pt-20">
+			<PreviousPage />
 			<main className="main-ver-post">
 				<section className="ver-post">
 					<h2 className="ver-post__h2">{ post.title }</h2>
@@ -23,13 +25,6 @@ function VerPost() {
 					<p>{ post.created }</p>
 				</section>
 			</main>
-			<aside className="aside-ver-post">
-				<h2>Comidas sin Tacc</h2>
-				<hr />
-				<div className="publicidad">
-					<img src="https://lasparchitas.com.ar/wp-content/uploads/2021/05/vegan-burguer-calabaza.jpg" alt="hamburguesa sin tacc" />
-				</div>
-			</aside>
 		</div>);
 }
 

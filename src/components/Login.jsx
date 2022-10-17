@@ -21,7 +21,6 @@ function Login() {
 			.then(function (data) {
 				const { token } = data;
 				const user      = { ...data.user, token };
-				console.log(user);
 				
 				localStorage.setItem('user', JSON.stringify(user));
 				
